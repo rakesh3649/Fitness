@@ -1,0 +1,490 @@
+@import "../../global.scss";
+
+.cart {
+	padding: 6em 0;
+
+	&__table {
+		width: 100%;
+		margin-bottom: 3em;
+		border-collapse: collapse;
+	}
+
+	&__thead {
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.185);
+	}
+
+	&__row > * {
+		padding: 0.3em;
+		font-size: 1.2rem;
+	}
+
+	&__tr > * {
+		padding: 0.3em;
+		font-size: 1.2rem;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.cart__img {
+		width: 50px;
+		object-fit: cover;
+	}
+
+	&__action-btn {
+		padding: 0.15em;
+		background-color: #4caf50;
+		border-radius: 3px;
+	}
+
+	&__action-icon {
+		@include flexCenter(row);
+		font-size: 1rem;
+		color: $white;
+	}
+
+	&__action-quantity {
+		margin: 0 0.5em;
+		font-weight: bold;
+	}
+
+	&__total {
+		font-weight: bold;
+		color: $main;
+	}
+
+	&__info {
+		padding: 2em;
+		max-width: 500px;
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.24);
+	}
+
+	&__info-title {
+		margin-bottom: 1em;
+		text-align: center;
+		font-size: 2rem;
+	}
+
+	&__total-amount {
+		margin-bottom: 1em;
+		font-size: 1.6rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 1em;
+	}
+
+	&__btn {
+		margin-top: 1.5em;
+		padding: 0.8em 1.4em;
+		border-radius: 12px;
+		background-color: $dark;
+		color: $white;
+	}
+
+	&__empty {
+		@include flexCenter(column);
+		gap: 2em;
+		padding: 4em;
+	}
+
+	&__empty-title {
+		font-size: 5rem;
+	}
+
+	&__empty-btn {
+		padding: 0.9em 1.8em;
+		background-color: $dark;
+		color: $white;
+		border-radius: 12px;
+		font-size: inherit;
+	}
+
+	&__modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__modal {
+		@include flexCenter(column);
+		gap: 1em;
+		width: 90%;
+		max-width: 550px;
+		padding: 5em;
+		background-color: $dark;
+		color: $white;
+		border-radius: 5px;
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+	}
+
+	&__modal-title {
+		font-size: 3.5rem;
+		text-align: center;
+	}
+
+	&__modal-text {
+		text-align: center;
+	}
+
+	&__modal-btn {
+		padding: 0.8em 2.4em;
+		background: $main;
+		color: $white;
+		border-radius: 5px;
+		border: 1px solid $dark;
+	}
+}
+
+@media (min-width: 520px) {
+	.cart {
+		&__row > * {
+			padding: 1em;
+			font-size: 1.4rem;
+			text-align: left;
+		}
+
+		&__tr > * {
+			padding: 0.8em;
+			font-size: 1.4rem;
+		}
+
+		.cart__img {
+			width: 70px;
+		}
+
+		&__info-title {
+			font-size: 2.5rem;
+		}
+
+		&__action-btn {
+			padding: 0.3em;
+		}
+	}
+}
+
+@media (min-width: 760px) {
+	.cart {
+		&__btn {
+			padding: 0.8em 1.6em;
+			transition: background-color 0.3s ease;
+			font-size: inherit;
+
+			&:hover {
+				background-color: $main;
+			}
+		}
+
+		&__action-btn {
+			padding: 0.4em;
+		}
+
+		&__info-title {
+			font-size: 3rem;
+		}
+
+		&__total-amount {
+			font-size: 2rem;
+		}
+
+		&__empty-btn {
+			transition: background-color 0.3s ease;
+		}
+
+		&__empty-btn:hover {
+			background-color: $main;
+		}
+
+		&__modal-btn {
+			transition: border 0.3s ease, background-color 0.3s ease;
+
+			&:hover {
+				border: 1px solid white;
+				background-color: inherit;
+			}
+		}
+	}
+}
+.cart__error {
+    padding: 1em;
+    margin: 1em 0;
+    background: #ffe6e6;
+    color: #d32f2f;
+    border-radius: 4px;
+    font-size: 1.4rem;
+}
+
+.cart__btn-checkout {
+    background-color: $main;
+    
+    &:hover:not(:disabled) {
+        background-color: darken($main, 10%);
+    }
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+// Address Section Styles
+.shipping-section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.5em;
+  color: $dark;
+  font-size: 1.6rem;
+
+  h4 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+}
+
+.btn-add-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-left: auto;
+  padding: 0.5em 1em;
+  background: $main;
+  color: $white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: darken($main, 10%);
+  }
+}
+
+.address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+
+.address-card {
+  position: relative;
+  background: $white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $main;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &.selected {
+    border-color: $main;
+    background: rgba($main, 0.05);
+  }
+}
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.address-type {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: $dark;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.default-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.3em 0.8em;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.address-details {
+  p {
+    margin: 0.5em 0;
+    font-size: 1.4rem;
+    color: #555;
+    line-height: 1.5;
+
+    strong {
+      color: $dark;
+    }
+  }
+}
+
+.btn-edit {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 0.5em;
+
+  &:hover {
+    color: $main;
+  }
+}
+
+.no-address {
+  text-align: center;
+  padding: 3em 1em;
+  background: $white;
+  border-radius: 8px;
+  border: 2px dashed #e0e0e0;
+
+  p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 1.5em;
+  }
+}
+
+.btn-add-first {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  margin: 0 auto;
+  padding: 1em 2em;
+  background: $main;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: darken($main, 10%);
+  }
+}
+/* Add to existing CartContent.scss */
+
+.success-icon {
+  font-size: 6rem;
+  color: #4CAF50;
+  margin-bottom: 1em;
+}
+
+.order-details {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
+.order-info {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.info-icon {
+  font-size: 2rem;
+  color: $main;
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-label {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.3em;
+}
+
+.info-value {
+  font-size: 1.4rem;
+  color: $white;
+  font-weight: 500;
+}
+
+.transaction-id {
+  font-family: monospace;
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5em;
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+.total-amount {
+  color: #4CAF50;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.order-notes {
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notes-label {
+  font-size: 1.4rem;
+  color: $white;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+.notes-text {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.3em;
+  line-height: 1.4;
+}
+
+.cart__btn-checkout {
+  background-color: $main;
+  
+  &:hover:not(:disabled) {
+    background-color: darken($main, 10%);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
