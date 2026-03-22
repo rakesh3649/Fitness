@@ -1,0 +1,184 @@
+
+@import "../../global.scss";
+
+.payment-method {
+  background: $white;
+  border-radius: 12px;
+  padding: 2em;
+  margin: 1.5em 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-title {
+  font-size: 2rem;
+  color: $dark;
+  margin-bottom: 0.5em;
+}
+
+.payment-subtitle {
+  color: #666;
+  font-size: 1.4rem;
+  margin-bottom: 2em;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: $main;
+    background: rgba($main, 0.05);
+  }
+
+  &.selected {
+    border-color: $main;
+    background: rgba($main, 0.1);
+  }
+}
+
+.option-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  flex: 1;
+}
+
+.option-icon {
+  font-size: 2.4rem;
+  color: $main;
+}
+
+.option-info {
+  flex: 1;
+}
+
+.option-title {
+  font-size: 1.6rem;
+  color: $dark;
+  margin-bottom: 0.3em;
+  font-weight: 500;
+}
+
+.option-description {
+  font-size: 1.3rem;
+  color: #666;
+  margin: 0;
+}
+
+.popular-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 0.4em 1em;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.option-radio {
+  input[type="radio"] {
+    display: none;
+    
+    &:checked + label {
+      border-color: $main;
+      
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+  
+  label {
+    width: 2em;
+    height: 2em;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    
+    &::after {
+      content: '';
+      width: 1em;
+      height: 1em;
+      background: $main;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+.card-details,
+.upi-details {
+  margin-top: 2em;
+  padding-top: 2em;
+  border-top: 1px solid #eee;
+  
+  h4 {
+    font-size: 1.6rem;
+    color: $dark;
+    margin-bottom: 1.5em;
+  }
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 1.5em;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+
+.form-group {
+  flex: 1;
+  
+  label {
+    display: block;
+    margin-bottom: 0.8em;
+    font-size: 1.4rem;
+    color: $dark;
+    font-weight: 500;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1.2em;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    transition: border-color 0.3s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: $main;
+    }
+    
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
+
+.hint {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 0.5em;
+}
